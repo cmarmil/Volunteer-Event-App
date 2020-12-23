@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -6,13 +6,13 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
-} from 'reactstrap';
-import CodeIcon from './navIcon'
+  NavLink,
+} from "reactstrap";
+import CodeIcon from "./navIcon";
 import styled from "styled-components";
 
 const StyledNavbarBrand = styled(NavbarBrand)`
-  font-Family: 'Ruda', Sans-Serif;
+  font-family: "Ruda", Sans-Serif;
   font-weight: 700;
 `;
 
@@ -24,21 +24,28 @@ const MenuBar = (props) => {
   return (
     <div>
       <Navbar color="primary" light expand="md">
-        <StyledNavbarBrand href="/"><CodeIcon/>Communitech</StyledNavbarBrand>
+        <StyledNavbarBrand href="/">
+          <CodeIcon />
+          Communitech
+        </StyledNavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink>Event List</NavLink>
+              <NavLink href="/">
+                Event List
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>My Events</NavLink>
+              <NavLink href="/my-events">
+                My Events
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
     </div>
   );
-}
+};
 
 export default MenuBar;
