@@ -16,6 +16,9 @@ function App() {
             <MenuBar />
             <EventCardDeck />
           </Route>
+          <Route path="/my-events">
+            <MenuBar />
+          </Route>
         </Switch>
       </div>
     </IntlProvider>

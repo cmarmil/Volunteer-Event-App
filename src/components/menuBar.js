@@ -8,7 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import CodeIcon from "./navIcon";
+import NavIcon from "./navIcon";
 import styled from "styled-components";
 
 const StyledNavbarBrand = styled(NavbarBrand)`
@@ -25,21 +25,17 @@ const MenuBar = (props) => {
     <div>
       <Navbar color="primary" light expand="md">
         <StyledNavbarBrand href="/">
-          <CodeIcon />
+          <NavIcon />
           Communitech
         </StyledNavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">
-                Event List
-              </NavLink>
+              <NavLink href="/">Event List</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/my-events">
-                My Events
-              </NavLink>
+              <NavLink href="/my-events">My Events</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
