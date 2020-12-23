@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import "bootswatch/dist/journal/bootstrap.min.css";
-import { StateProvider } from './components/appContext'
+import { BrowserRouter } from "react-router-dom";
+import { StateProvider } from "./components/appContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <StateProvider>
       <App />
     </StateProvider>
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
