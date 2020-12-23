@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import "./App.css";
+import { IntlProvider, FormattedDate } from "react-intl";
+import { store } from "./components/appContext";
 
 function App() {
+  const { state, dispatch } = useContext(store)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <IntlProvider locale={state.locale}>
+        <div className="App">
+          <FormattedDate
+            value={new Date(1459832991883)}
+            year="numeric"
+            month="long"
+            day="2-digit"
+          />
+        </div>
+        <button onClick={(e) => dispatch({type: 'UPDATE_LOCALE', payload:'en-ZA'})}>{state.locale}</button>
+      </IntlProvider>
   );
 }
 
