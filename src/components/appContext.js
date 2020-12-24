@@ -12,6 +12,7 @@ const initialState = {
     { localeStr: "en-ZA", localeName: "South Africa" },
     { localeStr: "en-GB", localeName: "Great Britain" },
   ],
+  activeFilters: ["teaching", "hackathon", "project"],
 };
 
 const store = createContext(initialState);
@@ -33,6 +34,23 @@ const StateProvider = ({ children }) => {
       case "SORT_BY_DESCENDING_DATE":
         currentState.eventData = currentState.eventData.sort(
           (a, b) => new Date(b.startDate) - new Date(a.startDate)
+        );
+        return currentState;
+      case "UPDATE_FILTERS":
+        if (
+          action.payload.checked &&
+          !currentState.activeFilters.includes(action.payload.name)
+        ) {
+          currentState.activeFilters.push(action.payload.name);
+        } else {
+          var index = currentState.activeFilters.indexOf(action.payload.name);
+          if (index !== -1) {
+            currentState.activeFilters.splice(index, 1);
+          }
+        }
+        //filter events according to new list of filter tags
+        currentState.eventData = eventData.filter((event) =>
+          currentState.activeFilters.includes(event.type)
         );
         return currentState;
       default:

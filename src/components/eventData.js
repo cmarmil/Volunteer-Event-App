@@ -1,7 +1,7 @@
 const eventData = [
   {
     name: "K-12 Computer Science Camp",
-    type: "Teaching",
+    type: "teaching",
     startDate: "June 4, 2021",
     endDate: "June 11, 2021",
     description:
@@ -11,7 +11,7 @@ const eventData = [
   },
   {
     name: "Women's Web Development Meetup",
-    type: "Presentation",
+    type: "teaching",
     startDate: "January 7, 2021",
     endDate: "January 7, 2021",
     description:
@@ -21,7 +21,7 @@ const eventData = [
   },
   {
     name: "Coding for Greenville",
-    type: "Hackathon",
+    type: "hackathon",
     startDate: "March 12, 2021",
     endDate: "March 14, 2021",
     description:
@@ -31,7 +31,7 @@ const eventData = [
   },
   {
     name: "Crush Hunger Website",
-    type: "Project",
+    type: "project",
     startDate: "February 1, 2021",
     endDate: "February 28, 2021",
     description:
@@ -41,7 +41,7 @@ const eventData = [
   },
   {
     name: "Coding Instructor",
-    type: "Teaching",
+    type: "teaching",
     startDate: "January 20, 2021",
     endDate: "January 28, 2021",
     description:
@@ -51,7 +51,7 @@ const eventData = [
   },
   {
     name: "Community Cafe Website Overhaul",
-    type: "Project",
+    type: "project",
     startDate: "February 1, 2021",
     endDate: "February 28, 2021",
     description:
