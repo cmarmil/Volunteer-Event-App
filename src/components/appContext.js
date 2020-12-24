@@ -13,6 +13,8 @@ const initialState = {
     { localeStr: "en-GB", localeName: "Great Britain" },
   ],
   activeFilters: ["teaching", "hackathon", "project"],
+  modalOpen: false,
+  activeEvent: null
 };
 
 const store = createContext(initialState);
@@ -52,6 +54,10 @@ const StateProvider = ({ children }) => {
         currentState.eventData = eventData.filter((event) =>
           currentState.activeFilters.includes(event.type)
         );
+        return currentState;
+      case "TOGGLE_MODAL":
+        currentState.modalOpen = !currentState.modalOpen;
+        currentState.activeEvent = action.payload;
         return currentState;
       default:
         throw new Error();

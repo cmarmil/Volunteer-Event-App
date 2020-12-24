@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import EventCardDeck from "./components/eventCardDeck";
 import SettingsButtons from "./components/settingsButtons";
 import MenuBar from "./components/menuBar";
+import DetailsModal from "./components/detailsModal";
 
 function App() {
   const { state } = useContext(store);
@@ -15,8 +16,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <MenuBar />
-            <SettingsButtons/>
+            <SettingsButtons />
             <EventCardDeck />
+            <DetailsModal />
           </Route>
           <Route path="/my-events">
             <MenuBar />
