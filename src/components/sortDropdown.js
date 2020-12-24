@@ -7,14 +7,14 @@ import {
 } from "reactstrap";
 import { store } from "./appContext";
 
-const SortDropdown = (props) => {
+const SortDropdown = () => {
   const [isOpen, setDropdownOpen] = useState(false);
   const { state, dispatch } = useContext(store);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <ButtonDropdown isOpen={isOpen} toggle={toggle}>
+    <ButtonDropdown isOpen={isOpen} toggle={toggle} className="mr-2">
       <DropdownToggle caret outline color="primary">
         Sort By
       </DropdownToggle>
