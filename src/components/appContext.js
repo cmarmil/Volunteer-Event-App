@@ -25,6 +25,16 @@ const StateProvider = ({ children }) => {
       case "UPDATE_LOCALE":
         currentState.locale = action.payload;
         return currentState;
+      case "SORT_BY_ASCENDING_DATE":
+        currentState.eventData = currentState.eventData.sort(
+          (a, b) => new Date(a.startDate) - new Date(b.startDate)
+        );
+        return currentState;
+      case "SORT_BY_DESCENDING_DATE":
+        currentState.eventData = currentState.eventData.sort(
+          (a, b) => new Date(b.startDate) - new Date(a.startDate)
+        );
+        return currentState;
       default:
         throw new Error();
     }

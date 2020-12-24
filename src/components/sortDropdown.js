@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import { store } from "./appContext";
 
 const SortDropdown = (props) => {
   const [isOpen, setDropdownOpen] = useState(false);
+  const { state, dispatch } = useContext(store);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -17,8 +19,20 @@ const SortDropdown = (props) => {
         Sort By
       </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>Date</DropdownItem>
-        <DropdownItem>Event Type</DropdownItem>
+        <DropdownItem
+          onClick={() =>
+            dispatch({ type: "SORT_BY_ASCENDING_DATE", payload: null })
+          }
+        >
+          Date (Ascending)
+        </DropdownItem>
+        <DropdownItem
+          onClick={() =>
+            dispatch({ type: "SORT_BY_DESCENDING_DATE", payload: null })
+          }
+        >
+          Date (Descending)
+        </DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
   );
