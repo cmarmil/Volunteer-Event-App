@@ -4,6 +4,14 @@ import eventData from "./eventData";
 const initialState = {
   locale: "en-US",
   eventData: eventData,
+  localeList: [
+    { localeStr: "en-US", localeName: "USA" },
+    { localeStr: "en-AU", localeName: "Australia" },
+    { localeStr: "en-CA", localeName: "Canada" },
+    { localeStr: "en-IE", localeName: "Ireland" },
+    { localeStr: "en-ZA", localeName: "South Africa" },
+    { localeStr: "en-GB", localeName: "Great Britain" },
+  ],
 };
 
 const store = createContext(initialState);
@@ -21,7 +29,7 @@ const StateProvider = ({ children }) => {
         throw new Error();
     }
   }, initialState);
-  return <Provider value={{state, dispatch}}>{children}</Provider>
+  return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export {StateProvider, store}
+export { StateProvider, store };
