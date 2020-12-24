@@ -4,8 +4,7 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
-  Badge
+  Button
 } from "reactstrap";
 import { FormattedDateTimeRange } from "react-intl";
 
@@ -24,8 +23,8 @@ const EventCard = (props) => {
         <CardTitle tag="h5">{props.cardData.name}</CardTitle>
         <CardSubtitle tag="h6" className="mb-2 text-muted">
           <FormattedDateTimeRange
-            from={new Date("2020-1-1")}
-            to={new Date("2020-1-15")}
+            from={new Date(props.cardData.startDate)}
+            to={new Date(props.cardData.endDate)}
           />
         </CardSubtitle>
         <Button outline color="primary" className="mt-auto">Details</Button>
