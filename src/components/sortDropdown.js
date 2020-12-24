@@ -9,7 +9,7 @@ import { store } from "./appContext";
 
 const SortDropdown = () => {
   const [isOpen, setDropdownOpen] = useState(false);
-  const { state, dispatch } = useContext(store);
+  const { dispatch } = useContext(store);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
