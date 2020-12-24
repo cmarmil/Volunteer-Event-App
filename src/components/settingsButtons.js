@@ -6,7 +6,7 @@ import { Container } from "reactstrap";
 function SettingsButtons() {
   return (
     <Container fluid className="d-md-flex align-items-center mt-2">
-      <div className="mr-3">
+      <div className="mr-3 mb-md-0 mb-2">
         <SortDropdown />
         <LocaleDropdown />
       </div>
