@@ -1,20 +1,23 @@
+import { useContext } from "react";
 import {
   Card,
   CardImg,
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button
+  Button,
 } from "reactstrap";
-import { FormattedDateTimeRange } from "react-intl";
+import { FormattedDate } from "react-intl";
+import { store } from "./appContext";
 
 const EventCard = (props) => {
+  const { dispatch } = useContext(store);
   return (
     <Card className="m-2" style={{ height: "20em" }}>
       <CardImg
         top
         width="100%"
-        height="50%"
+        height="60%"
         style={{ objectFit: "cover" }}
         src={props.cardData.image}
         alt="Card image cap"
@@ -22,12 +25,21 @@ const EventCard = (props) => {
       <CardBody className="d-flex flex-column">
         <CardTitle tag="h5">{props.cardData.name}</CardTitle>
         <CardSubtitle tag="h6" className="mb-2 text-muted">
-          <FormattedDateTimeRange
-            from={new Date(props.cardData.startDate)}
-            to={new Date(props.cardData.endDate)}
-          />
+          <span>
+            <FormattedDate value={new Date(props.cardData.startDate)} /> -{" "}
+            <FormattedDate value={new Date(props.cardData.endDate)} />
+          </span>
         </CardSubtitle>
-        <Button outline color="primary" className="mt-auto">Details</Button>
+        <Button
+          outline
+          color="primary"
+          className="mt-auto"
+          onClick={() =>
+            dispatch({ type: "TOGGLE_MODAL", payload: props.cardData })
+          }
+        >
+          Details
+        </Button>
       </CardBody>
     </Card>
   );

@@ -2,8 +2,8 @@ const eventData = [
   {
     name: "K-12 Computer Science Camp",
     type: "teaching",
-    startDate: "June 4, 2021",
-    endDate: "June 11, 2021",
+    startDate: "06/04/2021",
+    endDate: "06/11/2021",
     description:
       "Instructors needed to conduct coding and technology workshops to children ages K-12 in a summer camp setting.",
     image:
@@ -12,8 +12,8 @@ const eventData = [
   {
     name: "Women's Web Development Meetup",
     type: "teaching",
-    startDate: "January 7, 2021",
-    endDate: "January 7, 2021",
+    startDate: "01/07/2021",
+    endDate: "01/07/021",
     description:
       "Professional web developer needed to lead women's development meetup. Volunteer will provide a short presentation on a predetermined topic and answer audience questions as they arise.",
     image:
@@ -22,8 +22,8 @@ const eventData = [
   {
     name: "Coding for Greenville",
     type: "hackathon",
-    startDate: "March 12, 2021",
-    endDate: "March 14, 2021",
+    startDate: "04/12/2021",
+    endDate: "04/14/2021",
     description:
       "Join our annual weekend hackathon and use your programming skills to give back to the community. Volunteers will be organized into small groups and given a community focused problem to develop a solution for. Food and Drink will be provided.",
     image:
@@ -32,8 +32,8 @@ const eventData = [
   {
     name: "Crush Hunger Website",
     type: "project",
-    startDate: "February 1, 2021",
-    endDate: "February 28, 2021",
+    startDate: "02/01/2021",
+    endDate: "02/28/2021",
     description:
       "Help crush hunger using your web development skills! Crush Hunger is in need of a volunteer to develop a simple website to establish a web presence and provide information to the community. Volunteer must be proficient in Javascript, HTML, and CSS",
     image:
@@ -42,8 +42,8 @@ const eventData = [
   {
     name: "Coding Instructor",
     type: "teaching",
-    startDate: "January 20, 2021",
-    endDate: "January 28, 2021",
+    startDate: "01/20/2021",
+    endDate: "01/28/2021",
     description:
       "Volunteers needed to teach small group of adults in a community sponsored development workshop. Volunteers must be proficient in Javascript, Python, or Ruby.",
     image:
@@ -52,8 +52,8 @@ const eventData = [
   {
     name: "Community Cafe Website Overhaul",
     type: "project",
-    startDate: "February 1, 2021",
-    endDate: "February 28, 2021",
+    startDate: "02/01/2021",
+    endDate: "02/28/2021",
     description:
       "Help the charity focused Community Cafe better serve our neighbors by providing them with an informational website. Volunteers must have Wordpress development experience.",
     image:
