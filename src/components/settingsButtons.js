@@ -1,12 +1,17 @@
 import SortDropdown from "./sortDropdown";
 import LocaleDropdown from "./localeDropdown";
+import FilterCheckboxes from "./filterCheckboxes";
+import { Container } from "reactstrap";
 
 function SettingsButtons() {
   return (
-    <div className="settingsButtons-container">
-      <SortDropdown />
-      <LocaleDropdown />
-    </div>
+    <Container fluid className="d-md-flex align-items-center mt-2">
+      <div className="mr-3">
+        <SortDropdown />
+        <LocaleDropdown />
+      </div>
+      <FilterCheckboxes />
+    </Container>
   );
 }
 
