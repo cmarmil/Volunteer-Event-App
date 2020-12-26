@@ -16,13 +16,17 @@ function App() {
           <Route path="/" exact>
             <MenuBar />
             <SettingsButtons />
-            <EventCardDeck eventData={state.eventData}/>
-            <DetailsModal key={state.activeEvent}/>
+            <EventCardDeck eventData={state.eventData} />
+            <DetailsModal key={state.activeEvent} />
           </Route>
           <Route path="/my-events">
             <MenuBar />
-            <EventCardDeck eventData={state.selectedEvents} />
-            <DetailsModal key={state.activeEvent}/>
+            {state.selectedEvents.length ? (
+              <EventCardDeck eventData={state.selectedEvents} />
+            ) : (
+              <p className="text-center mt-3">You haven't selected any events.</p>
+            )}
+            <DetailsModal key={state.activeEvent} />
           </Route>
         </Switch>
       </div>
