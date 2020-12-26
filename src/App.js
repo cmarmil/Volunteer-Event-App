@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import "./App.css";
 import { IntlProvider } from "react-intl";
 import { store } from "./components/appContext";
 import { Route, Switch } from "react-router-dom";
