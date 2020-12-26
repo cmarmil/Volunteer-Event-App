@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { store } from "./appContext";
 import EventCard from "./eventCard";
 import styled from "styled-components";
 
