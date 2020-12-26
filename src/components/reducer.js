@@ -45,6 +45,7 @@ const reducer = (state, action) => {
       ) {
         currentState.selectedEvents.push(action.payload);
       }
+      localStorage.setItem('selectedEvents', JSON.stringify(currentState.selectedEvents));
       return currentState;
     default:
       throw new Error();

@@ -16,7 +16,7 @@ const initialState = {
   activeFilters: ["teaching", "hackathon", "project"],
   modalOpen: false,
   activeEvent: null,
-  selectedEvents: [],
+  selectedEvents: JSON.parse(localStorage.getItem('selectedEvents')),
 };
 
 const store = createContext(initialState);
