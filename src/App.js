@@ -16,11 +16,13 @@ function App() {
           <Route path="/" exact>
             <MenuBar />
             <SettingsButtons />
-            <EventCardDeck />
-            <DetailsModal />
+            <EventCardDeck eventData={state.eventData}/>
+            <DetailsModal key={state.activeEvent}/>
           </Route>
           <Route path="/my-events">
             <MenuBar />
+            <EventCardDeck eventData={state.selectedEvents} />
+            <DetailsModal key={state.activeEvent}/>
           </Route>
         </Switch>
       </div>
