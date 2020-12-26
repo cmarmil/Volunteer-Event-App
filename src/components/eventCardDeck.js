@@ -19,7 +19,7 @@ const CardContainer = styled.div`
 `;
 
 function EventCardDeck() {
-  const { state, dispatch } = useContext(store);
+  const { state } = useContext(store);
   return (
     <CardContainer>
       {state.eventData.map((event, index) => (
