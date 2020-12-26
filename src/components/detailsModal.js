@@ -15,7 +15,7 @@ const DetailsModal = () => {
           {state.activeEvent?.description}
         </ModalBody>
         <ModalFooter>
-          <Button color="primary">Volunteer</Button>{" "}
+          <Button color="primary" onClick={() => dispatch({type: 'ADD_EVENT', payload: state.activeEvent})}>Volunteer</Button>{" "}
           <Button color="secondary" onClick={toggleModal}>
             Cancel
           </Button>

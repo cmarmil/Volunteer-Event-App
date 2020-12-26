@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import eventData from "./eventData";
+import reducer from "./reducer";
 
 const initialState = {
   locale: "en-US",
@@ -14,7 +15,8 @@ const initialState = {
   ],
   activeFilters: ["teaching", "hackathon", "project"],
   modalOpen: false,
-  activeEvent: null
+  activeEvent: null,
+  selectedEvents: [],
 };
 
 const store = createContext(initialState);
@@ -22,47 +24,7 @@ const store = createContext(initialState);
 const { Provider } = store;
 
 const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer((state, action) => {
-    const currentState = { ...state };
-    switch (action.type) {
-      case "UPDATE_LOCALE":
-        currentState.locale = action.payload;
-        return currentState;
-      case "SORT_BY_ASCENDING_DATE":
-        currentState.eventData = currentState.eventData.sort(
-          (a, b) => new Date(a.startDate) - new Date(b.startDate)
-        );
-        return currentState;
-      case "SORT_BY_DESCENDING_DATE":
-        currentState.eventData = currentState.eventData.sort(
-          (a, b) => new Date(b.startDate) - new Date(a.startDate)
-        );
-        return currentState;
-      case "UPDATE_FILTERS":
-        if (
-          action.payload.checked &&
-          !currentState.activeFilters.includes(action.payload.name)
-        ) {
-          currentState.activeFilters.push(action.payload.name);
-        } else {
-          var index = currentState.activeFilters.indexOf(action.payload.name);
-          if (index !== -1) {
-            currentState.activeFilters.splice(index, 1);
-          }
-        }
-        //filter events according to new list of filter tags
-        currentState.eventData = eventData.filter((event) =>
-          currentState.activeFilters.includes(event.type)
-        );
-        return currentState;
-      case "TOGGLE_MODAL":
-        currentState.modalOpen = !currentState.modalOpen;
-        currentState.activeEvent = action.payload;
-        return currentState;
-      default:
-        throw new Error();
-    }
-  }, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
