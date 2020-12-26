@@ -21,7 +21,7 @@ const LocaleDropdown = (props) => {
       <DropdownMenu>
         {state.localeList.map((locale) => (
           <DropdownItem
-            key={locale.localStr}
+            key={locale.localeName}
             onClick={() =>
               dispatch({ type: "UPDATE_LOCALE", payload: locale.localeStr })
             }
