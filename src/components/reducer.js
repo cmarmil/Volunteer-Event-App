@@ -45,7 +45,25 @@ const reducer = (state, action) => {
       ) {
         currentState.selectedEvents.push(action.payload);
       }
-      localStorage.setItem('selectedEvents', JSON.stringify(currentState.selectedEvents));
+      localStorage.setItem(
+        "selectedEvents",
+        JSON.stringify(currentState.selectedEvents)
+      );
+      return currentState;
+    case "REMOVE_EVENT":
+      if (
+        currentState.selectedEvents.filter((e) => e.id === action.payload.id)
+          .length
+      ) {
+        utility.removeItemFromArray(
+          currentState.selectedEvents,
+          action.payload
+        );
+      }
+      localStorage.setItem(
+        "selectedEvents",
+        JSON.stringify(currentState.selectedEvents)
+      );
       return currentState;
     default:
       throw new Error();

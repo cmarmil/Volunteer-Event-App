@@ -1,30 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { store } from "./appContext";
-import CheckmarkIcon from "./checkmarkIcon";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { useLocation } from 'react-router-dom'
 
-const DetailsModal = () => {
+import ModalFooterVolunteer from "./modalFooterVolunteer";
+import ModalFooterRemove from "./modalFooterRemove";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
+
+const DetailsModal = (props) => {
   const { state, dispatch } = useContext(store);
-  const [isSuccess, setSuccess] = useState(false);
-  
+  let currentRoute = useLocation().pathname;
+
   function toggleModal() {
     dispatch({ type: "TOGGLE_MODAL" });
   }
-
-  function volunteerClick() {
-    dispatch({ type: "ADD_EVENT", payload: state.activeEvent });
-    setSuccess(true);
-    setTimeout(() => {
-      toggleModal();
-      setSuccess(false);
-    }, 1000);
-  }
-
-  const SuccessButtonContent = (
-    <>
-      Success! <CheckmarkIcon />{" "}
-    </>
-  );
 
   return (
     <div>
@@ -33,17 +21,11 @@ const DetailsModal = () => {
           {state.activeEvent?.name}
         </ModalHeader>
         <ModalBody>{state.activeEvent?.description}</ModalBody>
-        <ModalFooter>
-          <Button
-            color={isSuccess ? "success" : "primary"}
-            onClick={volunteerClick}
-          >
-            {isSuccess ? SuccessButtonContent : "Volunteer"}
-          </Button>{" "}
-          <Button color="secondary" onClick={toggleModal}>
-            Cancel
-          </Button>
-        </ModalFooter>
+        {currentRoute === '/' ? (
+          <ModalFooterVolunteer toggle={toggleModal} />
+        ) : (
+          <ModalFooterRemove toggle={toggleModal} />
+        )}
       </Modal>
     </div>
   );
