@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { store } from "./appContext";
-import { useLocation } from 'react-router-dom'
-
+import { useLocation } from "react-router-dom";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import { FormattedDate } from "react-intl";
 import ModalFooterVolunteer from "./modalFooterVolunteer";
 import ModalFooterRemove from "./modalFooterRemove";
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
-const DetailsModal = (props) => {
+const DetailsModal = () => {
   const { state, dispatch } = useContext(store);
   let currentRoute = useLocation().pathname;
 
@@ -20,8 +20,14 @@ const DetailsModal = (props) => {
         <ModalHeader toggle={toggleModal}>
           {state.activeEvent?.name}
         </ModalHeader>
-        <ModalBody>{state.activeEvent?.description}</ModalBody>
-        {currentRoute === '/' ? (
+        <ModalBody>
+          <p className="font-italic">
+            <FormattedDate value={new Date(state.activeEvent?.startDate)} /> -{" "}
+            <FormattedDate value={new Date(state.activeEvent?.endDate)} />
+          </p>
+          {state.activeEvent?.description}
+        </ModalBody>
+        {currentRoute === "/" ? (
           <ModalFooterVolunteer toggle={toggleModal} />
         ) : (
           <ModalFooterRemove toggle={toggleModal} />
